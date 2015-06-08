@@ -1,0 +1,69 @@
+<!doctype html>
+<html ng-app="madLibApp">
+    <head>
+        <title>Mad Lib!</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+        <link rel="stylesheet" href=style.css />
+        <script type="text/javascript" src="https://code.angularjs.org/1.4.0-rc.2/angular.min.js"></script>
+    </head>
+    <body>
+        <h1 style="font-size: 5em; padding-left: 20px">Mad Lib!</h1>
+        <div style="padding: 50px" ng-controller="madLibController">
+            <!-- User input -->
+            <div ng-hide="madLibInputComplete" style="font-size: 2em">
+                <form name="madLibInput" novalidate>
+                    <label>Male with title of authority</label>
+                    <input ng-model="positionOfAuthority[0]" type="text" required />
+                    <label>Region/Place</label>
+                    <input ng-model="place[0]" type="text" required />
+                    <label>Emotion (adjective)</label>
+                    <input ng-model="emotion[0]" type="text" required />
+                    <label>Adjective</label>
+                    <input ng-model="adjective[0]" type="text" required />
+                    <label>Adjective</label>
+                    <input ng-model="adjective[1]" type="text" required />
+                    <label>Action Verb</label>
+                    <input ng-model="verb[0]" type="text" required />
+                    <label>Adverb (ending in "ly")</label>
+                    <input ng-model="adverb[0]" type="text" required />
+                    <input class="btn btn-default btn-lg" type="submit" ng-click="madLibInput.$valid && displayRandomMadlib()"/>
+                </form>
+            </div>
+            <div id="stories" ng-show="madLibInputComplete" ng-cloak>
+                <!-- Story 1 -->
+                <div style="font-size: 3em" ng-show="isVisible(0)">
+                    <p>
+                        There once was <b>{{ positionOfAuthority[0] }}</b> who lived in <b>{{ place[0] }}</b>. All of the subjects were feeling <b>{{ emotion[0] }}</b> due to the <b>{{ adjective[0] }}</b> nature in which the land was governed.
+                    </p>
+                    <p>
+                        One <b>{{ adjective[1] }}</b> day, <b>{{ positionOfAuthority[0] }}</b> decided to <b>{{ verb[0] }}</b> all of the subjects. Everyone lived <b>{{ adverb[0] }}</b> ever after.
+                    </p>
+                </div>
+                <!-- Story 2 -->
+                <div style="font-size: 3em" ng-show="isVisible(1)">
+                    <p>
+                        My neighbor, <b>{{ positionOfAuthority[0] }}</b>, wanted to do something meaningful in <b>{{ place[0] }}</b>. When I heard about this, I felt <b>{{ emotion[0] }}</b>. If he wanted to do something meaningful, first he should return my <b>{{ adjective[0] }}</b> lawn mower he borrowed six months ago especially since his back yard still looks so <b>{{ adjective[1] }}</b>.
+                    </p>
+                    <p>
+                        One day, I had enough! So I decided to <b>{{ verb[0] }}</b> over to his house. I took back my lawn mower and cussed him out as <b>{{ adverb[0] }}</b> as I knew how. We've been friends ever since. 
+                    </p>
+                </div>
+                <!-- Story 3 -->
+                <div style="font-size: 3em" ng-show="isVisible(2)">
+                    <p>
+                        As <b>{{ positionOfAuthority[0] }}</b>, I knew I had to destroy <b>{{ place[0] }}</b>. With all of their jokes, the people there had made me feel nothing but <b>{{ emotion[0] }}</b>. I would have my revenge against them and their <b>{{ adjective[0] }}</b> jokes about me.
+                    </p>
+                    <p>
+                        When my day of retribution came, I brilliantly devised a plan to corner the market on all <b>{{ adjective[1] }}</b> chocolate. 
+                    </p>
+                    <p> Once a year, on the eve of my victory, I, <b>{{ positionOfAuthority[0] }}</b>, provide them with one ounce of <b>{{ adjective[1] }}</b> chocolate if they agree to <b>{{ adverb[0] }}</b> <b>{{ verb[0] }}</b> with my livestock. Now, they are forced to respect my self-confidence issues.
+                    </p>
+                </div>
+                <input class="btn btn-default btn-lg" sytle="submit" type="submit" value="Do it again!" ng-click="madLibInputComplete = false"/>
+            </div><!-- end of stories -->
+
+        </div>
+
+        <script type="text/javascript" src="app.js"></script>
+    </body>
+</html>

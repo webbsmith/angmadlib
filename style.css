@@ -1,0 +1,16 @@
+html {
+    line-height: 0.5;
+}
+
+form.ng-submitted > input.ng-invalid-required {
+    border-color: #FA787E;
+}
+
+label {
+    margin: 0;
+}
+
+input {
+    display: block;
+    margin: 0 0 14px 0px;
+}
