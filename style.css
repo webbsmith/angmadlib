@@ -1,16 +1,33 @@
+/*
 html {
     line-height: 0.5;
+}
+*/
+
+body {
+    padding: 25px inherit;
+}
+
+.container {
+    max-width: 370px;   
 }
 
 form.ng-submitted > input.ng-invalid-required {
     border-color: #FA787E;
 }
 
+#stories {
+    font-size: 19px;
+}
+
+/*
 label {
     margin: 0;
 }
+*/
 
+/*
 input {
     display: block;
     margin: 0 0 14px 0px;
-}
+}*/
